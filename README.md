@@ -18,13 +18,7 @@ git clone https://github.com/davijr28/aiCommitAssistent
 cd aiCommitAssistent
 ```
 
-**2. Install dependencies:**
-
-```bash
-pip install -r requirements.txt
-```
-
-**3. Configure your API Key:**
+**2. Configure your API Key:**
 
 Create a **.env** file in the root folder and add your Gemini API key:
 
@@ -32,6 +26,13 @@ Create a **.env** file in the root folder and add your Gemini API key:
 GEMINI_API_KEY="your_key_here"
 ```
 Note: You must have a valid Gemini API key from Google AI Studio. Detailed setup instructions are available in the built-in help menu.
+
+**3. Install this tool utilizing `pip`**:
+
+```bash
+pip install -e.
+```
+
 # Usage
 **1. Stage your changes**
 
@@ -47,10 +48,10 @@ Run the tool to get a suggested message and commit instantly:
 
 ```bash
 # Default (English)
-python main.py
+aicm
 
 # Specific Language (e.g., Portuguese)
-python main.py pt
+aicm pt
 ```
 
 **3. Get Help**
@@ -58,7 +59,7 @@ python main.py pt
 If you're stuck, use the interactive help menu by typing:
 
 ```bash
-python main.py help
+aicm help
 ```
 
 # Requirements
