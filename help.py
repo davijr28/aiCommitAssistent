@@ -20,14 +20,14 @@ def show_language_help():
         "de": "German",
         "ko": "Korean",
         "fr": "French",
-        "it": "Italian"
+        "it": "Italian",
     }
     for code, lang in common.items():
         table.add_row(code, lang)
     console.print(table)
     console.print(f"Visit: {url} to check all language codes available\n")
     console.print(
-        f"To generate commit messages in a specific language, run: [italic]python main.py 'language_code'[/italic] (e.g., [italic]python main.py pt[/italic] for Portuguese). If no language is specified, English will be used by default.\n"
+        f"To generate commit messages in a specific language, run: [italic]aicm 'language_code'[/italic] (e.g., [italic]aicm pt[/italic] for Portuguese). If no language is specified, English will be used by default.\n"
     )
 
 
@@ -35,9 +35,9 @@ def show_api_help():
     text = """
 1. Visit: [blue underline]https://aistudio.google.com[/blue underline] to get started.
 2. Generate a [bold]Gemini API Key[/bold] (make sure it's active and you have enough tokens/requests).
-3. Create a file named [bold].env[/bold] in the project root.
-4. Add this line to the file: [green]GEMINI_API_KEY = "your key here"[/green]
-5. Save the file and run this tool: [italic]python main.py[/italic] for English default or select a language using [italic]python main.py 'language_code'[/italic] (e.g., [italic]python main.py pt[/italic] for Portuguese).
+3. Create a file named [bold].env[/bold] in the project root folder for this tool.
+4. Add this line to the file: [green]GEMINI_API_KEY = "your_key_here"[/green]
+5. Save the file and run this tool: [italic]aicm[/italic] for English default or select a language using [italic]aicm 'language_code'[/italic] (e.g., [italic]aicm pt[/italic] for Portuguese).
     """
     console.print(Panel(text, title="API Setup", expand=False))
 
@@ -45,9 +45,9 @@ def show_api_help():
 def show_git_tutorial():
     url = "https://git-scm.com/cheat-sheet"
     text = """
-[bold yellow]Step 1:[/bold yellow] Make sure you are in a git repo: [italic]git init[/italic]
+[bold yellow]Step 1:[/bold yellow] Make sure you are in a git repo: [italic]git init[/italic] or [italic]git remote -v[/italic]
 [bold yellow]Step 2:[/bold yellow] Stage your changes: [italic]git add .[/italic]
-[bold yellow]Step 3:[/bold yellow] Run this tool: [italic]python main.py[/italic] for English default or [italic]python main.py 'language_code'[/italic] (e.g., [italic]python main.py pt[/italic] for Portuguese) for typed language.
+[bold yellow]Step 3:[/bold yellow] Run this tool: [italic]aicm[/italic] for English default or [italic]aicm 'language_code'[/italic] (e.g., [italic]aicm pt[/italic] for Portuguese) for typed language.
     """
     console.print(Panel(text, title="Git Basics", expand=False))
     console.print(

@@ -31,19 +31,19 @@ def main(
         None, help="Language code (e.g., 'pt'). Leave blank for English."
     ),
 ):
-    # If no language specified, then default to English
-    if language is None:
-        language = "en"
-
     # Check if user asked for help
-    elif language == "help":
+    if language == "help":
         return help_menu()
+
+    # If no language specified, then default to English
+    elif language is None:
+        language = "en"
 
     # Validate the language
     target_lang = validate_lang(language)
     if not target_lang:
         console.print(
-            f"[yellow]Warning:[/yellow] '{language}' not recognized. Please, check [italic]python main.py help[/italic] to know more about language support."
+            f"[yellow]Warning:[/yellow] '{language}' not recognized. Please, check [italic]aicm help[/italic] to learn more about language support."
         )
         raise typer.Exit()
 
@@ -51,14 +51,14 @@ def main(
     diff = get_git_diff()
     if not diff.strip():
         console.print(
-            f"[yellow]Warning:[/yellow] No staged changes found. Please, check [italic]python main.py help[/italic] to see Git basics for this tool."
+            f"[yellow]Warning:[/yellow] No staged changes found. Please, check [italic]aicm help[/italic] to see Git basics for this tool."
         )
         raise typer.Exit()
 
     # Check if API key is set
     if not os.getenv("GEMINI_API_KEY"):
         console.print(
-            f"[bold red]Error: Gemini API Key not found.[/bold red] Please, check [italic]python main.py help[/italic] to see the API setup instructions."
+            f"[bold red]Error: Gemini API Key not found.[/bold red] Please, check [italic]aicm help[/italic] to see API setup instructions."
         )
         raise typer.Exit()
 
@@ -77,6 +77,10 @@ def main(
 
     if apply_commit(message):
         console.print(f"[bold blue]✓ Committed successfully![/bold blue]")
+    else:
+        console.print(
+            f"[bold red]X Operation canceled by the user. Commit not applied.[/bold red]"
+        )
 
 
 # --- Help Menu ---

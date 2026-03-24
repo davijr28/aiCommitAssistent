@@ -1,10 +1,12 @@
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 from google import genai
 from prompts import PROMPT
 
-# Load API key from .env file
-load_dotenv()
+# Locate and load API key from .env file
+SCRIPT_DIR = Path(__file__).resolve().parent
+load_dotenv(SCRIPT_DIR / ".env")
 
 
 # Function to initialize Gemini client with the API key
