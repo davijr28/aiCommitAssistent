@@ -4,6 +4,9 @@ from dotenv import load_dotenv
 from google import genai
 from prompts import PROMPT
 
+# Note: Ensure the model name is correct for your version (e.g., "gemini-2.5-flash")
+MODEL = "gemini-2.5-flash"
+
 # Locate and load API key from .env file
 SCRIPT_DIR = Path(__file__).resolve().parent
 load_dotenv(SCRIPT_DIR / ".env")
@@ -25,8 +28,5 @@ def generate_commit(diff, language):
     # Use the template from prompts.py
     full_prompt = PROMPT.format(diff=diff, language=language)
 
-    # Note: Ensure the model name is correct for your version (e.g., "gemini-2.5-flash")
-    response = client.models.generate_content(
-        model="gemini-2.5-flash", contents=full_prompt
-    )
+    response = client.models.generate_content(model=MODEL, contents=full_prompt)
     return response.text.strip()

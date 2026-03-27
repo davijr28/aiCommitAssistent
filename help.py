@@ -27,7 +27,7 @@ def show_language_help():
     console.print(table)
     console.print(f"Visit: {url} to check all language codes available\n")
     console.print(
-        f"To generate commit messages in a specific language, run: [italic]aicm 'language_code'[/italic] (e.g., [italic]aicm pt[/italic] for Portuguese). If no language is specified, English will be used by default.\n"
+        "To generate commit messages in a specific language, run: [italic]aicm 'language_code'[/italic] (e.g., [italic]aicm pt[/italic] for Portuguese). If no language is specified, English will be used by default.\n"
     )
 
 

@@ -51,14 +51,14 @@ def main(
     diff = get_git_diff()
     if not diff.strip():
         console.print(
-            f"[yellow]Warning:[/yellow] No staged changes found. Please, check [italic]aicm help[/italic] to see Git basics for this tool."
+            "[yellow]Warning:[/yellow] No staged changes found. Please, check [italic]aicm help[/italic] to see Git basics for this tool."
         )
         raise typer.Exit()
 
     # Check if API key is set
     if not os.getenv("GEMINI_API_KEY"):
         console.print(
-            f"[bold red]Error: Gemini API Key not found.[/bold red] Please, check [italic]aicm help[/italic] to see API setup instructions."
+            "[bold red]Error: Gemini API Key not found.[/bold red] Please, check [italic]aicm help[/italic] to see API setup instructions."
         )
         raise typer.Exit()
 
@@ -76,10 +76,10 @@ def main(
     )
 
     if apply_commit(message):
-        console.print(f"[bold blue]✓ Committed successfully![/bold blue]")
+        console.print("[bold blue]✓ Committed successfully![/bold blue]")
     else:
         console.print(
-            f"[bold red]X Operation canceled by the user. Commit not applied.[/bold red]"
+            "[bold red]X Operation canceled by the user. Commit not applied.[/bold red]"
         )
 
 
@@ -89,13 +89,13 @@ def main(
 @app.command(name="help")
 def help_menu():
     """Interactive help menu for Languages, API, or Git."""
-    console.print(f"\n[bold cyan]Main Help Menu[/bold cyan]")
-    console.print(f"1. [bold]lang[/bold] - Supported languages")
+    console.print("\n[bold cyan]Main Help Menu[/bold cyan]")
+    console.print("1. [bold]lang[/bold] - Supported languages")
     console.print(
-        f"2. [bold]api[/bold]  - How to setup your [bold].env[/bold] file with Gemini API key"
+        "2. [bold]api[/bold]  - How to setup your [bold].env[/bold] file with Gemini API key"
     )
-    console.print(f"3. [bold]git[/bold]  - Quick Git essentials for this tool")
-    console.print(f"q. [bold]quit[/bold] - Exit help")
+    console.print("3. [bold]git[/bold]  - Quick Git essentials for this tool")
+    console.print("q. [bold]quit[/bold] - Exit help")
 
     # Ask the user for an option in the terminal
     choice = Prompt.ask(
@@ -111,7 +111,7 @@ def help_menu():
     elif choice in ["3", "git"]:
         show_git_tutorial()
     else:
-        console.print(f"[yellow]Exiting help...[/yellow]")
+        console.print("[yellow]Exiting help...[/yellow]")
 
     raise typer.Exit()
 
