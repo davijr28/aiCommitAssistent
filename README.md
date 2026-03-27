@@ -1,4 +1,4 @@
-# AI Commit Message Assistent
+# AI Commit Message Assistant
 A CLI tool that leverages Google Gemini 2.5 Flash to analyze your staged Git changes and suggest meaningful, context-aware commit messages in multiple languages. This tool is designed to provide a personalized user experience, if you wish to modify the prompt for a more suitable version, please, feel free to do so in `prompts.py`. You can also update the Gemini model version in `llm.py` (check the note comment).
 
 # Features
@@ -14,8 +14,8 @@ A CLI tool that leverages Google Gemini 2.5 Flash to analyze your staged Git cha
 **1. Clone the repository:**
 
 ```bash
-git clone https://github.com/davijr28/aiCommitAssistent
-cd aiCommitAssistent
+git clone https://github.com/davijr28/ai-commit-assistant
+cd ai-commit-assistant
 ```
 
 **2. Configure your API Key:**
