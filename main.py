@@ -62,12 +62,12 @@ def main(
         )
         raise typer.Exit()
 
-    with console.status(f"[bold green]Generating {target_lang} commit..."):
-        message = generate_commit(diff, target_lang)
-
-    if not message:
+    try:
+        with console.status(f"[bold green]Generating {target_lang} commit..."):
+            message = generate_commit(diff, target_lang)
+    except Exception as e:
         console.print(
-            "[bold red]Failed to connect to Gemini. Please, check your API key and connection.[/bold red]"
+            f"[bold red]Error communicating with Gemini:[/bold red]\n{e}\n[bold]Please, check your API key and connection.[/bold]"
         )
         raise typer.Exit()
 
